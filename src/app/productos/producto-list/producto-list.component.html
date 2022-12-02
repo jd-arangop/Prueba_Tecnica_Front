@@ -1,0 +1,65 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-1"></div>
+
+    <div class="col-7 text-center">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let producto of productos">
+            <td>{{ producto.idProducto }}</td>
+            <td>{{ producto.nombre }}</td>
+            <td>${{ producto.precio }}</td>
+            <td>
+              <button
+                type="button"
+                class="btn btn-primary"
+                (click)="addCart(producto)"
+              >
+                Añadir
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <button type="button" (click)="facturar()" class="btn btn-primary">
+        Facturar
+      </button>
+    </div>
+
+    <div class="col-4" *ngIf="selected">
+      <div class="card" style="height: auto">
+        <div class="card-body">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Producto</th>
+                <th scope="col">Precio</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr *ngFor="let producto of cart">
+                <td>{{ producto.nombre }}</td>
+                <td>${{ producto.precio }}</td>
+              </tr>
+              <tr>
+                <td>{{total}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

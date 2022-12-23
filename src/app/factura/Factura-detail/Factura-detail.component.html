@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <p class="h3 p-3">Factura de compra</p>
+  <p class="h2 p-3">Fecha: {{factura.fecha}}</p>
+  <p class="h2 p-3">Nombre: {{factura.cliente.nombre}} {{factura.cliente.apellido}}</p>
+  <p class="h2 p-3">Correo: {{factura.cliente.email}} </p>
+  <table>
+    <thead>
+      <th scope="col">Cantidad</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Precio</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let detalle of factura.detalles">
+        <td>{{ detalle.cantidad }}</td>
+        <td>{{ detalle.producto.nombre }}</td>
+        <td>${{ detalle.precio }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="h3 p-3">Total: ${{total}}</p>
+</div>

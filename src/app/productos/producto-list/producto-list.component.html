@@ -36,30 +36,8 @@
       </button>
     </div>
 
-    <div class="col-4" *ngIf="selected">
-      <div class="card" style="height: auto">
-        <div class="card-body">
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th scope="col">Producto</th>
-                <th scope="col">Precio</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr *ngFor="let producto of cart">
-                <td>{{ producto.nombre }}</td>
-                <td>${{ producto.precio }}</td>
-              </tr>
-              <tr>
-                <td>{{total}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+    <div *ngIf="selected">
+      <app-Factura-detail [factura]="selectedFactura"></app-Factura-detail>
     </div>
-
   </div>
 </div>
